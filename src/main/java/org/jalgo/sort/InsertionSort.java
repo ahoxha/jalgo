@@ -10,15 +10,14 @@ import java.util.List;
 public class InsertionSort {
 
 	/**
-	 * Sorts an array of integers using the insertion sort algorithm. Depending
-	 * on the 'order' parameter, it sorts the array in Ascending or Descending
-	 * order.
+	 * Sorts an array of integers using the insertion sort algorithm. Depending on
+	 * the 'order' parameter, it sorts the array in Ascending or Descending order.
 	 * 
 	 * @param a
 	 *            the array to be sorted.
 	 * @param order
-	 *            the order in which the array 'a' will be sorted. Possible
-	 *            values: SortingOrder.ASCENDING or SortingOrder.DESCENDING.
+	 *            the order in which the array 'a' will be sorted. Possible values:
+	 *            SortingOrder.ASCENDING or SortingOrder.DESCENDING.
 	 */
 	public static void sort(int[] a, SortingOrder order) {
 		for (int i = 1; i < a.length; i++) {

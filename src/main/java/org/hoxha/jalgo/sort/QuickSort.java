@@ -1,8 +1,12 @@
 package org.hoxha.jalgo.sort;
 
-public class QuickSort {
+public final class QuickSort {
 
-	public void sort(int[] n, int p, int r, SortingOrder order) {
+	private QuickSort() {
+
+	}
+
+	public static void sort(int[] n, int p, int r, SortingOrder order) {
 		if (p < r) {
 			int q = partition(n, p, r, order);
 			sort(n, p, q - 1, order);
@@ -10,7 +14,7 @@ public class QuickSort {
 		}
 	}
 
-	protected int partition(int[] n, int p, int r, SortingOrder order) {
+	private static int partition(int[] n, int p, int r, SortingOrder order) {
 		int x = n[r];
 		int i = p - 1;
 		for (int j = p; j <= r - 1; j++) {
@@ -26,5 +30,4 @@ public class QuickSort {
 		n[r] = temp;
 		return i + 1;
 	}
-
 }

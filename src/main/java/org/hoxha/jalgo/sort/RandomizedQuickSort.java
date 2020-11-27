@@ -2,14 +2,13 @@ package org.hoxha.jalgo.sort;
 
 import java.util.Random;
 
-public class RandomizedQuickSort {
-	Random rand;
+public final class RandomizedQuickSort {
+	private static final Random rand = new Random();
 
-	public RandomizedQuickSort() {
-		rand = new Random();
+	private RandomizedQuickSort() {
 	}
 
-	public void sort(int[] n, int p, int r, SortingOrder order) {
+	public static void sort(int[] n, int p, int r, SortingOrder order) {
 		if (p < r) {
 			int q = partition(n, p, r, order);
 			sort(n, p, q - 1, order);
@@ -17,7 +16,7 @@ public class RandomizedQuickSort {
 		}
 	}
 
-	protected int partition(int[] n, int p, int r, SortingOrder order) {
+	private static int partition(int[] n, int p, int r, SortingOrder order) {
 		int pivot = rand.nextInt(r - p + 1) + p;
 		int x = n[pivot];
 		int i = p - 1;

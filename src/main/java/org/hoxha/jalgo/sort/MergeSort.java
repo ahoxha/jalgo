@@ -1,11 +1,11 @@
 package org.hoxha.jalgo.sort;
 
-/**
- * 
- * @author armend.hoxha
- *
- */
-public class MergeSort {
+public final class MergeSort {
+
+	private MergeSort() {
+
+	}
+
 	public static void sort(int[] a, int p, int r, SortingOrder order) {
 		if (p < r) {
 			int q = (p + r - 1) / 2;

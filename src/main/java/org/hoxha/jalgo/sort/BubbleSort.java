@@ -1,11 +1,10 @@
 package org.hoxha.jalgo.sort;
 
-/**
- * 
- * @author armend.hoxha
- *
- */
-public class BubbleSort {
+public final class BubbleSort {
+
+	private BubbleSort() {
+
+	}
 
 	public static void sort(int[] a, SortingOrder order) {
 		boolean swapped = false;
@@ -25,5 +24,4 @@ public class BubbleSort {
 			}
 		}
 	}
-
 }

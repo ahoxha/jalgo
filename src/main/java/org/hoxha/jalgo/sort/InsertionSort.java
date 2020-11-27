@@ -2,12 +2,11 @@ package org.hoxha.jalgo.sort;
 
 import java.util.List;
 
-/**
- * 
- * @author armend.hoxha
- *
- */
-public class InsertionSort {
+public final class InsertionSort {
+
+	private InsertionSort() {
+
+	}
 
 	/**
 	 * Sorts an array of integers using the insertion sort algorithm. Depending on

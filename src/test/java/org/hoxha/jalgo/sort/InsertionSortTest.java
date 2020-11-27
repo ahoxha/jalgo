@@ -1,6 +1,6 @@
-package org.jalgo.sort;
+package org.hoxha.jalgo.sort;
 
-import org.jango.sort.model.Student;
+import org.hoxha.jalgo.sort.model.Student;
 import org.junit.Test;
 import static org.junit.Assert.*;
 

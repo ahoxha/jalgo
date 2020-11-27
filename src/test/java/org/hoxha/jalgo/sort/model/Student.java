@@ -1,4 +1,4 @@
-package org.jango.sort.model;
+package org.hoxha.jalgo.sort.model;
 
 public class Student implements Comparable<Student> {
 	int id;

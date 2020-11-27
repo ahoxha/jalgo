@@ -1,4 +1,4 @@
-package org.jalgo.sort;
+package org.hoxha.jalgo.sort;
 
 import org.junit.Test;
 import static org.junit.Assert.*;

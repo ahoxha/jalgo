@@ -1,4 +1,4 @@
-package org.jalgo.sort;
+package org.hoxha.jalgo.sort;
 
 public enum SortingOrder {
 	ASCENDING, DESCENDING

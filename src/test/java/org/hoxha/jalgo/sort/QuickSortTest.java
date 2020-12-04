@@ -9,7 +9,7 @@ class QuickSortTest {
     void testQuickSortAscending() {
         int[] n = { 4, 1, 7, 3 };
 
-        QuickSort.sort(n, 0, n.length - 1, SortingOrder.ASCENDING);
+        QuickSort.sort(n, SortingOrder.ASCENDING);
 
         assertThat(n).isEqualTo(new int[] { 1, 3, 4, 7 });
     }
@@ -18,7 +18,7 @@ class QuickSortTest {
     void testQuickSortAscendingOneElement() {
         int[] n = { 3 };
 
-        QuickSort.sort(n, 0, n.length - 1, SortingOrder.ASCENDING);
+        QuickSort.sort(n, SortingOrder.ASCENDING);
 
         assertThat(n[0]).isEqualTo(3);
     }
@@ -27,7 +27,7 @@ class QuickSortTest {
     void testQuickSortDescending() {
         int[] n = { 4, 1, 7, 3 };
 
-        QuickSort.sort(n, 0, n.length - 1, SortingOrder.DESCENDING);
+        QuickSort.sort(n, SortingOrder.DESCENDING);
 
         assertThat(n).isEqualTo(new int[] { 7, 4, 3, 1 });
     }
@@ -36,7 +36,7 @@ class QuickSortTest {
     void testQuickSortDescendingOneElement() {
         int[] n = { 4 };
 
-        QuickSort.sort(n, 0, n.length - 1, SortingOrder.DESCENDING);
+        QuickSort.sort(n, SortingOrder.DESCENDING);
 
         assertThat(n[0]).isEqualTo(4);
     }
@@ -45,7 +45,7 @@ class QuickSortTest {
     void testRandomizedQuickSortAscending() {
         int[] n = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
 
-        RandomizedQuickSort.sort(n, 0, n.length - 1, SortingOrder.ASCENDING);
+        RandomizedQuickSort.sort(n, SortingOrder.ASCENDING);
 
         assertThat(n[0]).isOne();
         assertThat(n[3]).isEqualTo(4);

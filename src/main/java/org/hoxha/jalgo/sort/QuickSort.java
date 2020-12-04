@@ -6,7 +6,11 @@ public final class QuickSort {
 
 	}
 
-	public static void sort(int[] n, int p, int r, SortingOrder order) {
+	public static void sort(int[] array, SortingOrder sortingOrder) {
+		sort(array, 0, array.length - 1, sortingOrder);
+	}
+
+	private static void sort(int[] n, int p, int r, SortingOrder order) {
 		if (p < r) {
 			int q = partition(n, p, r, order);
 			sort(n, p, q - 1, order);
@@ -15,10 +19,9 @@ public final class QuickSort {
 	}
 
 	private static int partition(int[] n, int p, int r, SortingOrder order) {
-		int x = n[r];
 		int i = p - 1;
 		for (int j = p; j <= r - 1; j++) {
-			if ((order == SortingOrder.ASCENDING && n[j] < x) || (order == SortingOrder.DESCENDING && n[j] > x)) {
+			if ((order == SortingOrder.ASCENDING && n[j] < n[r]) || (order == SortingOrder.DESCENDING && n[j] > n[r])) {
 				i = i + 1;
 				int temp = n[i];
 				n[i] = n[j];

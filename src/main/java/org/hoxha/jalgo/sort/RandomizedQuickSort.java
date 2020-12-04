@@ -8,7 +8,11 @@ public final class RandomizedQuickSort {
 	private RandomizedQuickSort() {
 	}
 
-	public static void sort(int[] n, int p, int r, SortingOrder order) {
+	public static void sort(int[] array, SortingOrder sortingOrder) {
+		sort(array, 0, array.length - 1, sortingOrder);
+	}
+
+	private static void sort(int[] n, int p, int r, SortingOrder order) {
 		if (p < r) {
 			int q = partition(n, p, r, order);
 			sort(n, p, q - 1, order);

@@ -1,47 +1,48 @@
 package org.hoxha.jalgo.sort;
 
-import static org.junit.Assert.assertEquals;
+import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
-public class MergeSortTest {
-	@Test
-	public void testArrayEvenElementsAscending() {
-		int[] a = { 5, 3, 8, 1 };
-		MergeSort.sort(a, 0, a.length - 1, SortingOrder.ASCENDING);
-		assertEquals("Wrong value.", 1, a[0]);
-		assertEquals("Wrong value.", 3, a[1]);
-		assertEquals("Wrong value.", 5, a[2]);
-		assertEquals("Wrong value.", 8, a[3]);
-	}
+class MergeSortTest {
+    @Test
+    void testArrayEvenElementsAscending() {
+        int[] a = { 5, 3, 8, 1 };
 
-	@Test
-	public void testArrayOddElementsAscending() {
-		int[] a = { 1, 3, 4 };
-		MergeSort.sort(a, 0, a.length - 1, SortingOrder.ASCENDING);
-		assertEquals("Wrong value.", 1, a[0]);
-		assertEquals("Wrong value", 3, a[1]);
-		assertEquals("Wrong value.", 4, a[2]);
-	}
+        MergeSort.sort(a, 0, a.length - 1, SortingOrder.ASCENDING);
 
-	@Test
-	public void testOneElementArrayAscending() {
-		int[] a = { 1 };
-		MergeSort.sort(a, 0, a.length - 1, SortingOrder.ASCENDING);
-		assertEquals("Wrong value.", 1, a[0]);
-	}
+        assertThat(a).isEqualTo(new int[] { 1, 3, 5, 8 });
+    }
 
-	@Test
-	public void testArrayEvenElementsDescending() {
-		int[] a = { 1, 3, 4 };
-		MergeSort.sort(a, 0, a.length - 1, SortingOrder.DESCENDING);
-		assertEquals("Wrong value.", 4, a[0]);
-		assertEquals("Wrong value.", 3, a[1]);
-		assertEquals("Wrong value.", 1, a[2]);
-	}
+    @Test
+    void testArrayOddElementsAscending() {
+        int[] a = { 1, 3, 4 };
+
+        MergeSort.sort(a, 0, a.length - 1, SortingOrder.ASCENDING);
+
+        assertThat(a).isEqualTo(new int[] { 1, 3, 4 });
+    }
+
+    @Test
+    void testOneElementArrayAscending() {
+        int[] a = { 1 };
+
+        MergeSort.sort(a, 0, a.length - 1, SortingOrder.ASCENDING);
+
+        assertThat(a[0]).isOne();
+    }
+
+    @Test
+    void testArrayEvenElementsDescending() {
+        int[] a = { 1, 3, 4 };
+
+        MergeSort.sort(a, 0, a.length - 1, SortingOrder.DESCENDING);
+
+        assertThat(a).isEqualTo(new int[] { 4, 3, 1 });
+    }
 
 /*	@Test
-	public void testListEvenElementsAscending() {
+	void testListEvenElementsAscending() {
 
 	}*/
 }

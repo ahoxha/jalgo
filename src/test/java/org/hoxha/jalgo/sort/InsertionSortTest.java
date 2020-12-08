@@ -13,11 +13,13 @@ import org.junit.jupiter.api.Test;
 
 class InsertionSortTest {
 
+    private Sort sut = new InsertionSort();
+
     @Test
     void testArraySortAscendingPasses() {
         int[] a = { 5, 3, 1 };
 
-        InsertionSort.sort(a, SortingOrder.ASCENDING);
+        sut.sortAscending(a);
 
         assertArrayEquals(new int[] { 1, 3, 5 }, a);
     }
@@ -26,7 +28,7 @@ class InsertionSortTest {
     void testArrayWithOneElementSortAcendingPasses() {
         int[] a = { 1 };
 
-        InsertionSort.sort(a, SortingOrder.ASCENDING);
+        sut.sortAscending(a);
 
         assertThat(a[0]).isOne();
     }
@@ -35,7 +37,7 @@ class InsertionSortTest {
     void testEmptyArraySortAscendingPasses() {
         try {
             int[] a = new int[0];
-            InsertionSort.sort(a, SortingOrder.ASCENDING);
+            sut.sortAscending(a);
         } catch (ArrayIndexOutOfBoundsException ex) {
             fail("It should not have thrown an exception.");
         }
@@ -45,7 +47,7 @@ class InsertionSortTest {
     void testArraySortDescendingPasses() {
         int[] a = { 1, 8, 2 };
 
-        InsertionSort.sort(a, SortingOrder.DESCENDING);
+        sut.sortDescending(a);
 
         assertArrayEquals(new int[] { 8, 2, 1 }, a);
     }
@@ -54,19 +56,19 @@ class InsertionSortTest {
     void testArraySortSortedDescendingPasses() {
         int[] a = { 100, 20, 3 };
 
-        InsertionSort.sort(a, SortingOrder.DESCENDING);
+        sut.sortDescending(a);
 
         assertArrayEquals(new int[] { 100, 20, 3 }, a);
     }
 
     @Test
-    void testListSortAcendingPasses() {
+    void testListSortAscendingPasses() {
         List<Integer> a = new ArrayList<>();
         a.add(5);
         a.add(3);
         a.add(1);
 
-        InsertionSort.sort(a, SortingOrder.ASCENDING);
+        sut.sortAscending(a);
 
         assertThat(a).isEqualTo(Arrays.asList(1, 3, 5));
     }
@@ -78,19 +80,19 @@ class InsertionSortTest {
         a.add("acc");
         a.add("bc");
 
-        InsertionSort.sort(a, SortingOrder.DESCENDING);
+        sut.sortDescending(a);
 
         assertThat(a).isEqualTo(Arrays.asList("bc", "acc", "abc"));
     }
 
     @Test
-    void testIntegerListSortAcendingPasses() {
+    void testIntegerListSortAscendingPasses() {
         List<Integer> a = new ArrayList<>();
         a.add(1);
         a.add(12);
         a.add(6);
 
-        InsertionSort.sort(a, SortingOrder.ASCENDING);
+        sut.sortAscending(a);
 
         assertThat(a).isEqualTo(Arrays.asList(1, 6, 12));
     }
@@ -102,7 +104,7 @@ class InsertionSortTest {
         students[1] = new Student(12, "Anna Holmer", 3.3);
         students[2] = new Student(6, "Nora McDonald", 3.8);
 
-        InsertionSort.sort(students, SortingOrder.ASCENDING);
+        sut.sortAscending(students);
 
         assertThat(students[0].getId()).isOne();
         assertThat(students[1].getName()).isEqualTo("Nora McDonald");

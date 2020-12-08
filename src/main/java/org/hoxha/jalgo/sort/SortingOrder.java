@@ -1,5 +1,5 @@
 package org.hoxha.jalgo.sort;
 
-public enum SortingOrder {
+enum SortingOrder {
 	ASCENDING, DESCENDING
 }

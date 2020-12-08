@@ -6,11 +6,13 @@ import org.junit.jupiter.api.Test;
 
 class BubbleSortTest {
 
+    private Sort sut = new BubbleSort();
+
     @Test
     void testArrayAscending() {
         int[] a = { 3, 1, 8 };
 
-        BubbleSort.sort(a, SortingOrder.ASCENDING);
+        sut.sortAscending(a);
 
         assertThat(a).isEqualTo(new int[] { 1, 3, 8 });
     }
@@ -18,7 +20,7 @@ class BubbleSortTest {
     @Test
     void testArrayDescending() {
         int[] a = { 3, 1, 8 };
-        BubbleSort.sort(a, SortingOrder.DESCENDING);
+        sut.sortDescending(a);
 
         assertThat(a).isEqualTo(new int[] { 8, 3, 1 });
     }

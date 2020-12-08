@@ -99,15 +99,31 @@ class InsertionSortTest {
 
     @Test
     void testStringArraySortAscendingPasses() {
-        Student[] students = new Student[3];
-        students[0] = new Student(1, "John Doe", 3.12);
-        students[1] = new Student(12, "Anna Holmer", 3.3);
-        students[2] = new Student(6, "Nora McDonald", 3.8);
+        Student[] students = getStudentsArray();
 
         sut.sortAscending(students);
 
         assertThat(students[0].getId()).isOne();
         assertThat(students[1].getName()).isEqualTo("Nora McDonald");
         assertThat(students[2].getGpa()).isEqualTo(3.3);
+    }
+
+    @Test
+    void testStringArraySortDescending() {
+        Student[] students = getStudentsArray();
+
+        sut.sortDescending(students);
+
+        assertThat(students[0].getGpa()).isEqualTo(3.3);
+        assertThat(students[1].getName()).isEqualTo("Nora McDonald");
+        assertThat(students[2].getId()).isOne();
+    }
+
+    private Student[] getStudentsArray() {
+        Student[] students = new Student[3];
+        students[0] = new Student(1, "John Doe", 3.12);
+        students[1] = new Student(12, "Anna Holmer", 3.3);
+        students[2] = new Student(6, "Nora McDonald", 3.8);
+        return students;
     }
 }

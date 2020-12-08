@@ -23,12 +23,18 @@ final class InsertionSort implements Sort {
 	}
 
 	@Override
+	public <T extends Comparable<T>> void sortDescending(List<T> list) {
+		sort(list, DESCENDING);
+	}
+
+	@Override
 	public <T extends Comparable<T>> void sortAscending(T[] array) {
 		sort(array, ASCENDING);
 	}
 
-	public <T extends Comparable<T>> void sortDescending(List<T> list) {
-		sort(list, DESCENDING);
+	@Override
+	public <T extends Comparable<T>> void sortDescending(T[] array) {
+		sort(array, DESCENDING);
 	}
 
 	private void sort(int[] a, SortingOrder order) {

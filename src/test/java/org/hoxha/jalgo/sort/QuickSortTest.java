@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 
 class QuickSortTest {
 
-    private Sort sut = new QuickSort();
+    private final Sort sut = new QuickSort();
 
     @Test
     void testQuickSortAscending() {

@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 
 class BubbleSortTest {
 
-    private final Sort sut = new BubbleSort();
+    private final Sort sut = SortFactory.bubbleSort();
 
     @Test
     void testArrayAscending() {

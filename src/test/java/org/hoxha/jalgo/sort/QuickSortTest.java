@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 
 class QuickSortTest {
 
-    private final Sort sut = new QuickSort();
+    private final Sort sut = SortFactory.quickSort();
 
     @Test
     void testQuickSortAscending() {
@@ -48,7 +48,7 @@ class QuickSortTest {
     void testRandomizedQuickSortAscending() {
         int[] n = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
 
-        Sort sutRandomized = new RandomizedQuickSort();
+        Sort sutRandomized = SortFactory.randomizedQuickSort();
 
         sutRandomized.sortAscending(n);
 

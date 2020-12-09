@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 
 class MergeSortTest {
 
-    private final Sort sut = new MergeSort();
+    private final Sort sut = SortFactory.mergeSort();
 
     @Test
     void testArrayEvenElementsAscending() {

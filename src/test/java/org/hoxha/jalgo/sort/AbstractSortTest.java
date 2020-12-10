@@ -4,10 +4,13 @@ import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 import java.util.List;
 
+import org.hoxha.jalgo.sort.model.Student;
 import org.hoxha.jalgo.sort.util.inputargs.AscendingIntArrayArgumentsProvider;
 import org.hoxha.jalgo.sort.util.inputargs.AscendingIntListArgumentsProvider;
+import org.hoxha.jalgo.sort.util.inputargs.AscendingObjectArrayArgumentsProvider;
 import org.hoxha.jalgo.sort.util.inputargs.DescendingIntArrayArgumentsProvider;
 import org.hoxha.jalgo.sort.util.inputargs.DescendingIntListArgumentsProvider;
+import org.hoxha.jalgo.sort.util.inputargs.DescendingObjectArrayArgumentsProvider;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
@@ -60,6 +63,26 @@ public abstract class AbstractSortTest {
         @ParameterizedTest(name = DISPLAY_NAME)
         @ArgumentsSource(DescendingIntListArgumentsProvider.class)
         void testSortDescending(List<Integer> input, List<Integer> expectedOutput) {
+            sut.sortDescending(input);
+
+            assertThat(input).isEqualTo(expectedOutput);
+        }
+    }
+
+    @DisplayName("Test sorting of arrays of Comparable objects")
+    @Nested
+    class ComparableObjectTest {
+        @ParameterizedTest(name = DISPLAY_NAME)
+        @ArgumentsSource(AscendingObjectArrayArgumentsProvider.class)
+        void testSortAscending(Student[] input, Student[] expectedOutput) {
+            sut.sortAscending(input);
+
+            assertThat(input).isEqualTo(expectedOutput);
+        }
+
+        @ParameterizedTest(name = DISPLAY_NAME)
+        @ArgumentsSource(DescendingObjectArrayArgumentsProvider.class)
+        void testSortDescending(String[] input, String[] expectedOutput) {
             sut.sortDescending(input);
 
             assertThat(input).isEqualTo(expectedOutput);

@@ -41,10 +41,8 @@ final class BubbleSort implements Sort {
         for (int i = 0; i < array.length; i++) {
             swapped = false;
             for (int j = array.length - 1; j > i; j--) {
-                if ((order == ASCENDING && array[j] < array[j - 1]) || (order == DESCENDING && array[j] > array[j - 1])) {
-                    int temp = array[j];
-                    array[j] = array[j - 1];
-                    array[j - 1] = temp;
+                if (shouldElementsBeSwapped(array[j - 1], array[j], order)) {
+                    swapElements(array, j);
                     swapped = true;
                 }
             }
@@ -59,10 +57,8 @@ final class BubbleSort implements Sort {
         for (int i = 0; i < array.length; i++) {
             swapped = false;
             for (int j = array.length - 1; j > i; j--) {
-                if ((order == ASCENDING && array[j].compareTo(array[j - 1]) < 0) || (order == DESCENDING && array[j].compareTo(array[j - 1]) > 0)) {
-                    T temp = array[j];
-                    array[j] = array[j - 1];
-                    array[j - 1] = temp;
+                if (shouldElementsBeSwapped(array[j - 1], array[j], order)) {
+                    swapElements(array, j);
                     swapped = true;
                 }
             }
@@ -77,10 +73,8 @@ final class BubbleSort implements Sort {
         for (int i = 0; i < list.size(); i++) {
             swapped = false;
             for (int j = list.size() - 1; j > i; j--) {
-                if ((order == ASCENDING && list.get(j).compareTo(list.get(j - 1)) < 0) || (order == DESCENDING && list.get(j).compareTo(list.get(j - 1)) > 0)) {
-                    T temp = list.get(j);
-                    list.set(j, list.get(j - 1));
-                    list.set(j - 1, temp);
+                if (shouldElementsBeSwapped(list.get(j - 1), list.get(j), order)) {
+                    swapElements(list, j);
                     swapped = true;
                 }
             }
@@ -88,5 +82,31 @@ final class BubbleSort implements Sort {
                 break;
             }
         }
+    }
+
+    private <T extends Comparable<T>> boolean shouldElementsBeSwapped(T previous, T current, SortingOrder order) {
+        return shouldElementsBeSwapped(0, current.compareTo(previous), order);
+    }
+
+    private boolean shouldElementsBeSwapped(int previous, int current, SortingOrder order) {
+        return (order == ASCENDING && current < previous) || (order == DESCENDING && current > previous);
+    }
+
+    private void swapElements(int[] array, int currentIndex) {
+        int temp = array[currentIndex];
+        array[currentIndex] = array[currentIndex - 1];
+        array[currentIndex - 1] = temp;
+    }
+
+    private <T extends Comparable<T>> void swapElements(T[] array, int currentIndex) {
+        T temp = array[currentIndex];
+        array[currentIndex] = array[currentIndex - 1];
+        array[currentIndex - 1] = temp;
+    }
+
+    private <T extends Comparable<T>> void swapElements(List<T> list, int currentIndex) {
+        T temp = list.get(currentIndex);
+        list.set(currentIndex, list.get(currentIndex - 1));
+        list.set(currentIndex - 1, temp);
     }
 }

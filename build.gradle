@@ -1,6 +1,7 @@
 plugins {
     id 'java-library'
     id 'eclipse'
+    id 'idea'
     id 'jacoco'
 }
 
@@ -38,9 +39,5 @@ jacocoTestReport {
         xml.enabled = false
         csv.enabled = false
         html.destination file("${buildDir}/jacocoHtml")
-    }
-
-    afterEvaluate {
-        getClassDirectories().from(fileTree(dir: it, exclude: []))
     }
 }

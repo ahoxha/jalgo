@@ -5,13 +5,13 @@ Contains implementations of various algorithms.
 
 After cloning the repository, CD into the project's folder and type:
 
-`gradlew build`
+`./gradlew build` -- using gradle wrapper (no need to have gradle installed)
 
 ## How to run the tests?
 
 CD into the project's folder and type:
 
-`gradlew test`
+`./gradlew test`
 
 You can see the **test results** in the `{project_folder}/build/reports/tests/test/index.html` file.
 
@@ -22,17 +22,19 @@ I've used the `jacoco` gradle plugin to run the code coverage analysis.
 
 **To run the code coverage task**
 
-CD into the project's folder, then type `gradlew build jacocoTestReport`. 
+CD into the project's folder, then type `./gradlew build jacocoTestReport`. 
 You can see the **code coverage results** in the `{project_folder}/build/reports/jacoco/test/html/index.html` file.
 
 
-## How to make it an eclipse project and continue working on it?
+## How to make it an Eclipse/IntelliJ IDEA project and continue working on it?
 
 CD into the project directory and type:
 
-`gradlew eclise`
+`./gradlew eclise` for Eclipse
 
-Then you can import it into your Eclipse IDE.
+`./gradlew idea` for IntelliJ IDEA
+
+Then you can import it into your corresponding IDE.
 
 
 

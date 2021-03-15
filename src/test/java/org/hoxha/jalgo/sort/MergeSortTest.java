@@ -9,43 +9,47 @@ class MergeSortTest {
     private final Sort sut = SortFactory.mergeSort();
 
     @Test
-    void testArrayEvenElementsAscending() {
-        int[] a = { 5, 3, 8, 1 };
+    void testArrayWithEvenNumberOfElementsAscending() {
+        int[] array = { 5, 3, 8, 1 };
 
-        sut.sortAscending(a);
+        sut.sortAscending(array);
 
-        assertThat(a).isEqualTo(new int[] { 1, 3, 5, 8 });
+        assertThat(array).isEqualTo(new int[] { 1, 3, 5, 8 });
     }
 
     @Test
-    void testArrayOddElementsAscending() {
-        int[] a = { 1, 3, 4 };
+    void testArrayWithOddNumberOfElementsAscending() {
+        int[] array = { 1, 3, 4 };
 
-        sut.sortAscending(a);
+        sut.sortAscending(array);
 
-        assertThat(a).isEqualTo(new int[] { 1, 3, 4 });
+        assertThat(array).isEqualTo(new int[] { 1, 3, 4 });
     }
 
     @Test
     void testOneElementArrayAscending() {
-        int[] a = { 1 };
+        int[] array = { 1 };
 
-        sut.sortAscending(a);
+        sut.sortAscending(array);
 
-        assertThat(a[0]).isOne();
+        assertThat(array[0]).isOne();
     }
 
     @Test
-    void testArrayEvenElementsDescending() {
-        int[] a = { 1, 3, 4 };
+    void testOneElementArrayDescending() {
+        int[] array = { 3 };
 
-        sut.sortDescending(a);
+        sut.sortDescending(array);
 
-        assertThat(a).isEqualTo(new int[] { 4, 3, 1 });
+        assertThat(array[0]).isEqualTo(3);
     }
 
-/*	@Test
-	void testListEvenElementsAscending() {
+    @Test
+    void testArrayWithEvenNumberOfElementsDescending() {
+        int[] array = { 1, 3, 4 };
 
-	}*/
+        sut.sortDescending(array);
+
+        assertThat(array).isEqualTo(new int[] { 4, 3, 1 });
+    }
 }

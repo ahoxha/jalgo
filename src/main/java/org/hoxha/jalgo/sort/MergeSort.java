@@ -15,28 +15,19 @@ final class MergeSort implements Sort {
         sort(array, 0, array.length - 1, DESCENDING);
     }
 
-    private void sort(int[] a, int p, int r, SortingOrder order) {
+    private void sort(int[] array, int p, int r, SortingOrder order) {
         if (p < r) {
             int q = (p + r - 1) / 2;
-            sort(a, p, q, order);
-            sort(a, q + 1, r, order);
-            merge(a, p, q, r, order);
+            sort(array, p, q, order);
+            sort(array, q + 1, r, order);
+            merge(array, p, q, r, order);
         }
     }
 
     private void merge(int[] a, int p, int q, int r, SortingOrder order) {
-        int n1 = q - p + 1;
-        int n2 = r - q;
-        int[] left = new int[n1 + 1];
-        int[] right = new int[n2 + 1];
-        for (int i = 0; i < n1; i++) {
-            left[i] = a[i + p];
-        }
-        for (int i = 0; i < n2; i++) {
-            right[i] = a[i + q + 1];
-        }
-        left[n1] = order == ASCENDING ? Integer.MAX_VALUE : Integer.MIN_VALUE;
-        right[n2] = order == ASCENDING ? Integer.MAX_VALUE : Integer.MIN_VALUE;
+        int[] left = extractLeftSubarray(a, p, q, order);
+        int[] right = extractRightSubarray(a, q, r, order);
+
         int i = 0;
         int j = 0;
         for (int k = p; k <= r; k++) {
@@ -58,5 +49,27 @@ final class MergeSort implements Sort {
                 }
             }
         }
+    }
+
+    private int[] extractRightSubarray(int[] array, int q, int r, SortingOrder order) {
+        int index = r - q;
+        int[] subarray = new int[index + 1];
+        setLastElement(subarray, index, order);
+
+        System.arraycopy(array, q + 1, subarray, 0, index);
+        return subarray;
+    }
+
+    private int[] extractLeftSubarray(int[] array, int p, int q, SortingOrder order) {
+        int index = q - p + 1;
+        int[] subarray = new int[index + 1];
+        setLastElement(subarray, index, order);
+
+        System.arraycopy(array, p, subarray, 0, index);
+        return subarray;
+    }
+
+    private void setLastElement(int[] array, int index, SortingOrder order) {
+        array[index] = order == ASCENDING ? Integer.MAX_VALUE : Integer.MIN_VALUE;
     }
 }

@@ -11,12 +11,12 @@ import org.junit.jupiter.params.provider.ArgumentsProvider;
 
 public class DescendingObjectArrayArgumentsProvider implements ArgumentsProvider {
     @Override
-    public Stream<? extends Arguments> provideArguments(ExtensionContext context) throws Exception {
-        return Stream.of(
-                of(array("abc", "acb", "cba"), array("cba", "acb", "abc")),
-                of(array("xyz", "axy", "aby"), array("xyz", "axy", "aby")),
-                of(array("a", "r", "e", "d"), array("r", "e", "d", "a")),
-                of(array("a", "c", "x", "a"), array("x", "c", "a", "a"))
+    public Stream<? extends Arguments> provideArguments(ExtensionContext context) {
+        return Stream.of( //
+                of(array("abc", "acb", "cba"), array("cba", "acb", "abc")), //
+                of(array("xyz", "axy", "aby"), array("xyz", "axy", "aby")), //
+                of(array("a", "r", "e", "d"), array("r", "e", "d", "a")), //
+                of(array("a", "c", "x", "a"), array("x", "c", "a", "a")) //
         );
     }
 }

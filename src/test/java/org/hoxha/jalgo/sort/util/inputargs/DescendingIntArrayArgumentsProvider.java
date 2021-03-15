@@ -11,16 +11,16 @@ import org.junit.jupiter.params.provider.ArgumentsProvider;
 
 public class DescendingIntArrayArgumentsProvider implements ArgumentsProvider {
     @Override
-    public Stream<? extends Arguments> provideArguments(ExtensionContext context) throws Exception {
-        return Stream.of(
-                of(asArray(1, 2, 3, 4), asArray(4, 3, 2, 1)),
-                of(asArray(4, 3, 2, 1), asArray(4, 3, 2, 1)),
-                of(asArray(1, 4, 2, 3), asArray(4, 3, 2, 1)),
-                of(asArray(), asArray()),
-                of(asArray(1), asArray(1)),
-                of(asArray(0, 0, 0), asArray(0, 0, 0)),
-                of(asArray(3, -4, 5, 5), asArray(5, 5, 3, -4)),
-                of(asArray(-1, -3, -10), asArray(-1, -3, -10))
+    public Stream<? extends Arguments> provideArguments(ExtensionContext context) {
+        return Stream.of( //
+                of(asArray(1, 2, 3, 4), asArray(4, 3, 2, 1)), //
+                of(asArray(4, 3, 2, 1), asArray(4, 3, 2, 1)), //
+                of(asArray(1, 4, 2, 3), asArray(4, 3, 2, 1)), //
+                of(asArray(), asArray()), //
+                of(asArray(1), asArray(1)), //
+                of(asArray(0, 0, 0), asArray(0, 0, 0)), //
+                of(asArray(3, -4, 5, 5), asArray(5, 5, 3, -4)), //
+                of(asArray(-1, -3, -10), asArray(-1, -3, -10)) //
         );
     }
 }

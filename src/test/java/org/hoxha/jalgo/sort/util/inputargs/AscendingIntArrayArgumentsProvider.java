@@ -5,23 +5,22 @@ import static org.junit.jupiter.params.provider.Arguments.of;
 
 import java.util.stream.Stream;
 
-import org.hoxha.jalgo.sort.util.TestUtils;
 import org.junit.jupiter.api.extension.ExtensionContext;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.ArgumentsProvider;
 
 public class AscendingIntArrayArgumentsProvider implements ArgumentsProvider {
     @Override
-    public Stream<? extends Arguments> provideArguments(ExtensionContext context) throws Exception {
-        return Stream.of(
-                of(asArray(1, 2, 3, 4), asArray(1, 2, 3, 4)),
-                of(asArray(4, 3, 2, 1), asArray(1, 2, 3, 4)),
-                of(asArray(1, 4, 2, 3), asArray(1, 2, 3, 4)),
-                of(asArray(), asArray()),
-                of(asArray(1), asArray(1)),
-                of(asArray(0, 0, 0), asArray(0, 0, 0)),
-                of(asArray(3, -4, 5, 5), asArray(-4, 3, 5, 5)),
-                of(asArray(-1, -3, -10), asArray(-10, -3, -1))
+    public Stream<? extends Arguments> provideArguments(ExtensionContext context) {
+        return Stream.of( //
+                of(asArray(1, 2, 3, 4), asArray(1, 2, 3, 4)), //
+                of(asArray(4, 3, 2, 1), asArray(1, 2, 3, 4)), //
+                of(asArray(1, 4, 2, 3), asArray(1, 2, 3, 4)), //
+                of(asArray(), asArray()), //
+                of(asArray(1), asArray(1)), //
+                of(asArray(0, 0, 0), asArray(0, 0, 0)), //
+                of(asArray(3, -4, 5, 5), asArray(-4, 3, 5, 5)), //
+                of(asArray(-1, -3, -10), asArray(-10, -3, -1)) //
         );
     }
 }
